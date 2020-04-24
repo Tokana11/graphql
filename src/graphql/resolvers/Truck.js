@@ -1,16 +1,17 @@
 import Truck from "../../models/Truck"
-import { response } from "express"
+ import { response } from "express"
 
 export default {
     Query: {
-        truck: (root, args) => {
+        truck:(root, args) => {
             return new Promise((resolve, reject) => {
-                Truck.findOne(args).exec((error, response) => {
+                Truck.findOne(args).exec((error, response)=> {
                     error ? reject(error) : resolve(response);
                 })
             })
         },
         trucks: () => {
+            console.log("asdsad");
             return new Promise((resolve, reject) => {
                 Truck.find({}).populate().exec((error, response) => {
                     error ? reject(error) : resolve(response);
@@ -24,13 +25,16 @@ export default {
             return new Promise((resolve, reject) => {
                 newTruck.save((error, response) => {
                     error ? reject(error) : resolve(response);
+                    console.log(response,error);
                 })
             })
         },
         deleteTruck: (root, { _id }) => {
+            console.log(_id);
             return new Promise((resolve, reject) => {
-                Truck.findByIdAndUpdate({ _id }, { $set: { registernumber, manufacturer, enginetype } }, { new: true }).exec((error, response) => {
+                Truck.findByIdAndRemove({ _id }).exec((error, response) => {
                     error ? reject(error) : resolve(response);
+                    console.log(response,error);
                 })
             })
         }

@@ -1,20 +1,20 @@
 export default `
 
     type Truck {
-    _id: String!
-    registernumber: String!
-    manufacturer: String!
-    enginetype: String!
+        _id: String!
+        registernumber: String!
+        manufacturer: String!
+        enginetype: String!
     }
 
-    type Query{
-    truck(_id: String!): Truck
-    trucks: [Truck]
+    type Query {
+        truck(_id: String!): Truck
+        trucks: [Truck]
     }
 
     type Mutation {
-    addTruck(registernumber: String!, manufacturer: String!, enginetype: String!): Truck
-    deleteTruck(_id: String!): Truck
+        addTruck(registernumber: String!, manufacturer: String!, enginetype: String!): Truck
+        deleteTruck(_id: String!): Truck
     }
 
 `

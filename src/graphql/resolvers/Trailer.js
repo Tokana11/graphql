@@ -1,4 +1,4 @@
-import Truck from "../../models/Trailer"
+import Trailer from "../../models/Trailer"
 import { response } from "express"
 
 export default {
